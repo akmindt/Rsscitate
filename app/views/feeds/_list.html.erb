@@ -1,6 +1,7 @@
 <p>Feeds:</p>
 <% if @user.feeds.empty? %>
-	<p>You don't have any feeds :(</p>
+	<p>You don't have any feeds :(</p><br>
+	<p>Create a feed and hit the subscribe button</p>
 <% else %>
 		<% @user.feeds.each do |feed| %>
 			<p><%= link_to feed.name, feed %></p>

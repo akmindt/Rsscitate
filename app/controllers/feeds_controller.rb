@@ -42,6 +42,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new
   # GET /feeds/new.json
   def new
+    @title = "Create New Feed"
     @feed = Feed.new
     respond_to do |format|
       format.html # new.html.erb

@@ -40,16 +40,11 @@ class FeedSubscriptionsController < ApplicationController
   # POST /feed_subscriptions
   # POST /feed_subscriptions.json
   def create
-    @feed_subscription = FeedSubscription.new(params[:feed_subscription])
-
+    @feed_subscription = FeedSubscription.create_from_button(params[:user_id], params[:feed_id])
+    x = Feed.find(params[:feed_id])
     respond_to do |format|
-      if @feed_subscription.save
-        format.html { redirect_to @feed_subscription, notice: 'Feed subscription was successfully created.' }
+        format.html { redirect_to "/feeds/#{x.id}" }
         format.json { render json: @feed_subscription, status: :created, location: @feed_subscription }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @feed_subscription.errors, status: :unprocessable_entity }
-      end
     end
   end
 

@@ -1,5 +1,62 @@
-<h1>New feed</h1>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header" class="container">
+      <div id="logo">
+        <h1><a href='../users/1'><%= image_tag("templogo.png") %></a></h1>
+      </div>
+      <div id="menu">
+        
+      </div>
+    </div>
+  </div><!-- End Header-->
 
-<%= render 'form' %>
+  <div id="page">
+    <div id="feed-content-wrapper">
+      <div id="feed-bg">
+        <div class="feed-content">
+          <%= form_for(@feed) do |f| %>
+            <% if @feed.errors.any? %>
+              <div id="error_explanation">
+              <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
 
-<%= link_to 'Back', feeds_path %>
+              <ul>
+              <% @feed.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+           <%= f.label "Enter the url of the feed you want to create" %><br />
+            <%= f.text_field :url %>
+          </div>
+           <div class="actions">
+           <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="user-sidebar">
+
+			<div id="usertools">
+				<%= image_tag("userImg.jpg") %>
+				<p><%= @user.name %></p>
+			</div>
+			
+			<div id="logout">
+				<a href="index.html">Logout</a>
+			</div>
+			<br><br>
+			<div id="userfeeds">
+				<%= render partial: "feeds/list" %>
+			</div>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Rsscitate.com. All rights reserved.</p>
+</div>

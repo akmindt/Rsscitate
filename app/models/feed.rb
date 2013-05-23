@@ -16,7 +16,6 @@ class Feed < ActiveRecord::Base
     feed.description = doc.xpath("//channel/description").first.text
     feed.url = url
     feed.save
-
     items_array = doc.xpath('//item')
     items_array.length.times do |x|
       article_stream = feed.articles.new

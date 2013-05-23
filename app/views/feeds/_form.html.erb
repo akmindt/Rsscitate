@@ -1,20 +1,42 @@
-<%= form_for(@feed) do |f| %>
-  <% if @feed.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
-
-      <ul>
-      <% @feed.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header" class="container">
+      <div id="logo">
+        <h1><a href="#"><%= image_tag("templogo.png") %></a></h1>
+      </div>
+      <div id="menu">
+        
+      </div>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+  </div><!-- End Header-->
+
+  <div id="page">
+    <div id="feed-content-wrapper">
+      <div id="feed-bg">
+      <a href='../feeds/new'>Create A New Feed</a>
+        <div class="feed-content">
+          <%= form_for(@feed) do |f| %>
+            <% if @feed.errors.any? %>
+              <div id="error_explanation">
+              <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+
+              <ul>
+              <% @feed.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+           <%= f.label "Enter the url of the feed you want to create" %><br />
+            <%= f.text_field :url %>
+          </div>
+           <div class="actions">
+           <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+</div>
