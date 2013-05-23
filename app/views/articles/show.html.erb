@@ -1,0 +1,48 @@
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#"><%= image_tag("templogo.png") %></a></h1>
+			</div>
+			<div id="menu">
+				
+			</div>
+		</div>
+	</div><!-- End Header-->
+
+	<div id="page">
+		<div id="feed-content-wrapper">
+			<div id="feed-bg">
+				<div class="feed-content">
+					<h2><%= @article.title %></h2></br>
+						<h4>By: <%= @article.author %> </h4></br>
+							<p><%= @article.body.html_safe %></p></br>
+				</div>
+			</div>
+		</div>
+
+		
+		<!-- end #sidebar -->
+
+	</div>
+		<!-- end #content -->
+	<div id="user-sidebar">
+
+			<div id="usertools">
+				<%= image_tag("userImg.jpg") %>
+				<p>akmindt</p>
+			</div>
+			
+			<div id="logout">
+				<a href="index.html">Logout</a>
+			</div>
+			<br><br>
+			<div id="userfeeds">
+				<%= render partial: "feeds/list" %>
+			</div>
+		</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Sitename.com. All rights reserved.</p>
+</div>
+<!-- end #footer -->

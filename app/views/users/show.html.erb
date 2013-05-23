@@ -1,0 +1,68 @@
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#"><%= image_tag("templogo.png") %></a></h1>
+			</div>
+			<div id="menu">
+				
+			</div>
+		</div>
+	</div><!-- End Header-->
+
+	<div id="page">
+		<form id="usersearch">
+			<p><input type="text" value="Search for individual or user feed" id="searchterms"><input type="submit" value="Search"></p>
+		</form>
+		<div id="feed-content-wrapper">
+			<div id="feed-bg">
+				<div class="feed-content">
+					<div id="column1">
+						<% @column1.length.times do |x| %>
+							<a href=../articles/<%= @column1[x].id %>><h2 class="title"><%= @column1[x].title %></h2><br></a>
+							<div class="fbox1">
+								<p><%= @column1[x].summary %></p>
+							</div>
+							<br>
+						<% end %>
+					</div>
+
+					<div id="column2">
+						<% @column2.length.times do |x| %>
+							<a href=../articles/<%= @column2[x].id%>><h2 class="title"><%= @column2[x].title %></h2><br></a>
+							<div class="fbox2">
+								<p><%= @column2[x].summary %></p>
+							</div>
+							<br>
+						<% end %>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+		<div id="user-sidebar">
+
+			<div id="usertools">
+				<%= image_tag("userImg.jpg") %>
+				<p><%= @user.name %></p>
+			</div>
+			
+			<div id="logout">
+				<a href="index.html">Logout</a>
+			</div>
+			<br><br>
+			<div id="userfeeds">
+				<%= render partial: "feeds/list" %>
+			</div>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+	
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Sitename.com. All rights reserved.</p>
+</div>
+<!-- end #footer -->

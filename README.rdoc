@@ -1,0 +1,3 @@
+== Welcome to Rsscitate
+
+This is Rsscitate, a free, new RSS reader that brings all of your feeds together in one compiled list. You can sort your articles chronologically, unread first, alphabetically or by individual feed. You can even share your articles to Facebook, Twitter and more! The amount of articles you can read are limited only by your individual feeds! You can start by signing up or searching for an indivuidual feed or another user's feed.

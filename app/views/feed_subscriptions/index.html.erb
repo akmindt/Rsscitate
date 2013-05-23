@@ -1,0 +1,27 @@
+<h1>Listing feed_subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Feed</th>
+    <th>User</th>
+    <th>Rating</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feed_subscriptions.each do |feed_subscription| %>
+  <tr>
+    <td><%= feed_subscription.feed_id %></td>
+    <td><%= feed_subscription.user_id %></td>
+    <td><%= feed_subscription.rating %></td>
+    <td><%= link_to 'Show', feed_subscription %></td>
+    <td><%= link_to 'Edit', edit_feed_subscription_path(feed_subscription) %></td>
+    <td><%= link_to 'Destroy', feed_subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feed subscription', new_feed_subscription_path %>

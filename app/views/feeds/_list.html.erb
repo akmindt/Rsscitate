@@ -1,0 +1,8 @@
+<p>Feeds:</p>
+<% if @user.feeds.empty? %>
+	<p>You don't have any feeds :(</p>
+<% else %>
+		<% @user.feeds.each do |feed| %>
+			<p><%= link_to feed.name, feed %></p>
+		<% end %>
+<% end %>

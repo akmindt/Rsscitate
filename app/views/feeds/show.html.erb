@@ -1,0 +1,80 @@
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#"><%= image_tag("templogo.png") %></a></h1>
+			</div>
+			<div id="menu">
+				
+			</div>
+		</div>
+	</div><!-- End Header-->
+
+	<div id="page">
+		<div id="feed-content-wrapper">
+			<div id="feed-bg">
+				<div class="feed-content">
+					<h2><%= @feed.name %></h2><br>
+					<h3><%= @feed.description %></h3>  
+					<h4><% @category_array.length.times do |x| %>
+							<a href=../categories/<%= x + 1 %>><%= @category_array[x] %></a>
+					<% end %>
+					<br><br>
+						<div id="column1">
+						<% @column1.length.times do |x| %>
+							<a href=../articles/<%= @column1[x].id %>><h2 class="title"><%= @column1[x].title %></h2></a><br>
+							<div class="fbox1">
+								<p><% if @column1[x].body.include? "This website doesn't have content for their articles in their feed :(" %>
+										<%= @column1[x].summary.html_safe %>
+									<% else %>
+										<%= truncate(@column1[x].body, :length => 250, :separator => ' ').html_safe %>
+									<% end %>
+								</p>
+							</div>
+							<br>
+						<% end %>
+					</div>
+
+					<div id="column2">
+						<% @column2.length.times do |x| %>
+							<a href=../articles/<%= @column2[x].id%>><h2 class="title"><%= @column2[x].title %></h2><br></a>
+							<div class="fbox2">
+								<p><%= @column2[x].summary.html_safe %></p>
+							</div>
+							<br>
+						<% end %>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		
+
+	</div>
+
+	
+		<!-- end #content -->
+	<div id="user-sidebar">
+
+			<div id="usertools">
+				<%= image_tag("userImg.jpg") %>
+				<p>Aaron Mindt</p>
+			</div>
+			
+			<div id="logout">
+				<a href="index.html">Logout</a>
+			</div>
+			<br><br>
+			<div id="userfeeds">
+				<%= render partial: "feeds/list" %>
+			</div>
+		</div>
+		<!-- end #sidebar -->
+		
+<!-- end #footer -->
+</div>
+<div id="footer">
+		<p>Copyright (c) 2013 Sitename.com. All rights reserved.</p>
+		</div>
+
