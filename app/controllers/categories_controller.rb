@@ -14,17 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @column1 = []
-    @column2 = []
-    @category.feeds.length.times do |x|
-      if x % 2 == 0
-        @column1 << @category.feeds[x]
-      end
-      if x % 2 == 1
-        @column2 << @category.feeds[x]
-      end
-    end
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @feed }
