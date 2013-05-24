@@ -23,6 +23,7 @@ class Feed < ActiveRecord::Base
       article_stream.summary = items_array[x- 1].xpath("description").text
       article_stream.body = items_array[x - 1].xpath("content:encoded").text
       article_stream.author = items_array[x - 1].xpath("dc:creator").text
+      article_stream.url = items_array[x - 1].xpath("guid").text
       article_stream.save
     end
 
